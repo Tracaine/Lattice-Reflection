@@ -1,0 +1,239 @@
+{
+  "description": "Illustrative control exchange after a successful handshake and ready snapshot; renderer reports and binary audio frames are omitted. WRK-005 generates PCM fixture buffers. This is a new protocol example, not observed Animates traffic.",
+  "frames": [
+    {
+      "direction": "client_to_broker",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "commandId": "10000000-0000-4000-8000-000000000111",
+        "kind": "input.submit",
+        "scope": {
+          "characterId": "10000000-0000-4000-8000-000000000031",
+          "conversationId": "10000000-0000-4000-8000-000000000071",
+          "expectedEpoch": 1
+        },
+        "body": {
+          "text": "Hello",
+          "clientInputId": "10000000-0000-4000-8000-000000000110",
+          "source": "desktop_text"
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000201",
+        "eventSeq": 1,
+        "epoch": 1,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "command.result",
+        "body": {
+          "commandId": "10000000-0000-4000-8000-000000000111",
+          "status": "accepted",
+          "effect": "committed",
+          "turnId": "10000000-0000-4000-8000-000000000101",
+          "messageId": "10000000-0000-4000-8000-000000000102",
+          "error": null
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000202",
+        "eventSeq": 2,
+        "epoch": 1,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "turn.started",
+        "body": {
+          "turnId": "10000000-0000-4000-8000-000000000101",
+          "userMessage": {
+            "id": "10000000-0000-4000-8000-000000000102",
+            "turnId": "10000000-0000-4000-8000-000000000101",
+            "role": "user",
+            "text": "Hello",
+            "revision": 1,
+            "status": "complete",
+            "createdAtMs": 1792699200000
+          },
+          "assistantMessageId": "10000000-0000-4000-8000-000000000103"
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000203",
+        "eventSeq": 3,
+        "epoch": 1,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "message.delta",
+        "body": {
+          "messageId": "10000000-0000-4000-8000-000000000103",
+          "fromRevision": 0,
+          "toRevision": 1,
+          "offsetUtf16": 0,
+          "textDelta": "Hello. "
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000204",
+        "eventSeq": 4,
+        "epoch": 1,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "speech.start",
+        "body": {
+          "utteranceId": "10000000-0000-4000-8000-000000000104",
+          "messageId": "10000000-0000-4000-8000-000000000103",
+          "encoding": "pcm_s16le",
+          "sampleRate": 24000,
+          "channels": 1
+        }
+      }
+    },
+    {
+      "direction": "client_to_broker",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "commandId": "10000000-0000-4000-8000-000000000112",
+        "kind": "turn.interrupt",
+        "scope": {
+          "characterId": "10000000-0000-4000-8000-000000000031",
+          "conversationId": "10000000-0000-4000-8000-000000000071",
+          "expectedEpoch": 1
+        },
+        "body": {
+          "reason": "stop_button"
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000205",
+        "eventSeq": 5,
+        "epoch": 2,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "presentation.reset",
+        "body": {
+          "epoch": 2,
+          "reason": "interrupt",
+          "desiredVisual": {
+            "revision": 0,
+            "base": "idle",
+            "activity": {
+              "kind": "none",
+              "source": "manual",
+              "ttlMs": 0
+            },
+            "emotion": {
+              "name": "neutral",
+              "weight": 0,
+              "ttlMs": 0
+            },
+            "gaze": "auto",
+            "gesture": null,
+            "reducedMotion": false
+          }
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000206",
+        "eventSeq": 6,
+        "epoch": 2,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "command.result",
+        "body": {
+          "commandId": "10000000-0000-4000-8000-000000000112",
+          "status": "accepted",
+          "effect": "scheduled",
+          "turnId": "10000000-0000-4000-8000-000000000101",
+          "messageId": "10000000-0000-4000-8000-000000000103",
+          "error": null
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000207",
+        "eventSeq": 7,
+        "epoch": 2,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "message.final",
+        "body": {
+          "messageId": "10000000-0000-4000-8000-000000000103",
+          "revision": 2,
+          "text": "Hello. ",
+          "status": "interrupted",
+          "outcome": "interrupted"
+        }
+      }
+    },
+    {
+      "direction": "broker_to_client",
+      "message": {
+        "protocol": "companion",
+        "version": 1,
+        "sessionId": "10000000-0000-4000-8000-000000000081",
+        "eventId": "10000000-0000-4000-8000-000000000208",
+        "eventSeq": 8,
+        "epoch": 2,
+        "characterId": "10000000-0000-4000-8000-000000000031",
+        "conversationId": "10000000-0000-4000-8000-000000000071",
+        "turnId": "10000000-0000-4000-8000-000000000101",
+        "kind": "turn.finished",
+        "body": {
+          "turnId": "10000000-0000-4000-8000-000000000101",
+          "state": "cancelled",
+          "warnings": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "connections": [
+    {
+      "id": "10000000-0000-4000-8000-000000000001",
+      "revision": 1,
+      "label": "Offline mock",
+      "kind": "mock",
+      "enabled": true,
+      "baseUrl": null,
+      "auth": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000002",
+      "revision": 1,
+      "label": "OpenAI (not configured)",
+      "kind": "openai-chat",
+      "enabled": false,
+      "baseUrl": "https://api.openai.com/v1",
+      "auth": {
+        "kind": "bearer",
+        "secretRef": "10000000-0000-4000-8000-000000000092"
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000003",
+      "revision": 1,
+      "label": "OpenRouter (not configured)",
+      "kind": "openrouter-chat",
+      "enabled": false,
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "auth": {
+        "kind": "bearer",
+        "secretRef": "10000000-0000-4000-8000-000000000093"
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000004",
+      "revision": 1,
+      "label": "LM Studio (not configured)",
+      "kind": "lmstudio-chat",
+      "enabled": false,
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "auth": {
+        "kind": "none"
+      }
+    }
+  ],
+  "modelProfiles": [
+    {
+      "id": "10000000-0000-4000-8000-000000000011",
+      "revision": 1,
+      "label": "Scripted companion",
+      "connectionId": "10000000-0000-4000-8000-000000000001",
+      "modelId": "mock-companion-v1",
+      "capabilities": {
+        "text": true,
+        "streaming": true,
+        "instructionRole": "system",
+        "structuredOutput": "json_schema",
+        "usage": "reported",
+        "contextWindowTokens": 8192,
+        "outputTokenLimit": 2048,
+        "supportsTemperature": false,
+        "supportsTopP": false
+      },
+      "adapterOptions": {}
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000012",
+      "revision": 1,
+      "label": "Scripted brief companion",
+      "connectionId": "10000000-0000-4000-8000-000000000001",
+      "modelId": "mock-brief-v1",
+      "capabilities": {
+        "text": true,
+        "streaming": true,
+        "instructionRole": "system",
+        "structuredOutput": "json_schema",
+        "usage": "reported",
+        "contextWindowTokens": 8192,
+        "outputTokenLimit": 2048,
+        "supportsTemperature": false,
+        "supportsTopP": false
+      },
+      "adapterOptions": {}
+    }
+  ],
+  "routeBindings": [
+    {
+      "id": "10000000-0000-4000-8000-000000000021",
+      "revision": 1,
+      "scope": {
+        "kind": "application"
+      },
+      "role": "dialogue",
+      "binding": {
+        "mode": "model",
+        "profileId": "10000000-0000-4000-8000-000000000011",
+        "maxOutputTokens": 512
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000022",
+      "revision": 1,
+      "scope": {
+        "kind": "application"
+      },
+      "role": "director",
+      "binding": {
+        "mode": "rules"
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000023",
+      "revision": 1,
+      "scope": {
+        "kind": "application"
+      },
+      "role": "memory",
+      "binding": {
+        "mode": "disabled"
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000024",
+      "revision": 1,
+      "scope": {
+        "kind": "character_channel",
+        "characterId": "10000000-0000-4000-8000-000000000032",
+        "channelId": "10000000-0000-4000-8000-000000000041"
+      },
+      "role": "dialogue",
+      "binding": {
+        "mode": "model",
+        "profileId": "10000000-0000-4000-8000-000000000012",
+        "maxOutputTokens": 128
+      }
+    }
+  ],
+  "speechConnections": [],
+  "voiceBindings": [
+    {
+      "id": "10000000-0000-4000-8000-000000000051",
+      "revision": 1,
+      "label": "Scripted demo speech",
+      "kind": "mock-speech",
+      "connectionId": null,
+      "ttsModelId": null,
+      "sttModelId": null,
+      "voiceId": null,
+      "language": "en"
+    }
+  ],
+  "characters": [
+    {
+      "id": "10000000-0000-4000-8000-000000000031",
+      "revision": 1,
+      "name": "Aster",
+      "biography": "An editable demonstration companion.",
+      "instructions": "Respond warmly and briefly. Treat the character's authored profile as a role description.",
+      "language": "en",
+      "avatarId": "10000000-0000-4000-8000-000000000061",
+      "voiceBindingId": "10000000-0000-4000-8000-000000000051"
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000032",
+      "revision": 1,
+      "name": "Rowan",
+      "biography": "A second independent demonstration identity.",
+      "instructions": "Respond calmly and concisely. Keep this character's memories separate.",
+      "language": "en",
+      "avatarId": "10000000-0000-4000-8000-000000000061",
+      "voiceBindingId": "10000000-0000-4000-8000-000000000051"
+    }
+  ],
+  "channels": [
+    {
+      "id": "10000000-0000-4000-8000-000000000041",
+      "kind": "desktop",
+      "label": "Desktop (typing and voice)"
+    }
+  ]
+}

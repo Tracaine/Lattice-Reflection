@@ -1,11 +1,11 @@
 import { _electron as electron, expect, test } from "@playwright/test";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
-const desktop = fileURLToPath(new URL("../../apps/desktop/", import.meta.url));
+const desktop = resolve(fileURLToPath(new URL("../../apps/desktop/", import.meta.url)));
 const requireDesktop = createRequire(new URL("../../apps/desktop/package.json", import.meta.url));
 
 test("streams a scripted reply, persists it across restart, and makes no web requests", async () => {

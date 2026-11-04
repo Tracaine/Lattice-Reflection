@@ -23,7 +23,10 @@ describe("transactional transcript", () => {
   ] as const)("recovers from process death %s", (point, committed, partial) => {
     const worker = fileURLToPath(new URL("./crash-worker.mjs", import.meta.url));
     const result = spawnSync(process.execPath, [worker, path, point], { encoding: "utf8", timeout: 5000 });
-    expect(result.signal, result.stderr).toBe("SIGKILL");
+    expect(result.error).toBeUndefined();
+    expect(result.stderr).toBe("");
+    // Windows reports SIGKILL as exit code 1 without a signal.
+    expect([result.status, result.signal]).toEqual(process.platform === "win32" ? [1, null] : [null, "SIGKILL"]);
     const store = new CompanionStore(path);
     try {
       const recovered = store.history(profile.id, conversation.id);

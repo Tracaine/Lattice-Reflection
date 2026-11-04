@@ -4,7 +4,7 @@
   "type": "module",
   "dependencies": {
     "@open-companion/storage": "workspace:*",
-    "better-sqlite3": "12.10.0",
+    "better-sqlite3": "12.11.1",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
@@ -12,13 +12,15 @@
     "@playwright/test": "1.61.1",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "electron": "42.0.0",
+    "@electron/rebuild": "4.0.4",
+    "electron": "42.3.0",
     "esbuild": "0.28.2"
   },
   "main": "dist/main.cjs",
   "scripts": {
     "build": "node build.mjs",
     "start": "electron .",
+    "rebuild:native": "electron-rebuild -f -w better-sqlite3",
     "e2e": "playwright test --config ../../tests/playwright.config.ts"
   }
 }

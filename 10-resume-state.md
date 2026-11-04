@@ -1,9 +1,14 @@
 # Continuation state
 
-## Implementation update, 2026-11-04
+## Current implementation state, 2026-11-04
 
-WRK-001 and WRK-002 are verified and published on the feature branch. See [WRK-001 evidence](evidence/WRK-001/result.md) and [WRK-002 evidence](evidence/WRK-002/result.md). WRK-003 has a local draft build, with [desktop acceptance blocked at launch](evidence/WRK-003/result.md). Resume WRK-003 in a desktop-capable environment. The remaining sections describe the original design handoff.
+WRK-001 and WRK-002 are verified. WRK-003 is complete at the desktop text slice. The Windows fixes are in `9256303` and the original Windows evidence is in `d869d09`, both on `feature/open-companion`. Windows Playwright passed 1/1, including progressive mock text and transcript recovery after restart. Bill also opened the app manually and observed the saved exchange. See [WRK-003 evidence](evidence/WRK-003/result.md).
 
+The Electron default-session HTTP(S)/WebSocket audit was empty. Process-wide outbound auditing and operation under OS-level network denial remain open. M0 is still in progress.
+
+WRK-004 (avatar renderer and original demo rig) and WRK-005 (PCM playback clock and cancellation) are eligible. WRK-004 is the recommended next slice and unlocks WRK-019 when verified. WRK-006 needs both WRK-004 and WRK-005. No next package has started.
+
+## Original design handoff (historical)
 
 ART-012. Blueprint revision 1, design version 0.1, draft for review. This is a continuation cache; a future agent must reconcile it with the actual repository and evidence.
 

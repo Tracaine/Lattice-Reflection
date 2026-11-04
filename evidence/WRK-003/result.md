@@ -28,7 +28,9 @@ Playwright launched Electron twice. It observed the partial `Hello. ` text and f
 
 Node 24 uses native module ABI 137 on this host; Electron 42 uses ABI 146. Both workspace packages link to one physical `better-sqlite3` installation. `pnpm -r rebuild better-sqlite3` restores the Node-targeted binding for `pnpm test`; `pnpm --filter @open-companion/desktop rebuild:native` restores the Electron-targeted binding. The checkout was left in the Electron-targeted state.
 
-The network audit covers Electron's default session, including the renderer. It does not capture arbitrary Node networking from the utility process or provide an OS-wide packet trace. The current broker selects the mock connection and built-in mock provider, whose turn path uses a timer and has no network transport. Process-wide outbound auditing remains a separate verification task; the existing Playwright acceptance test passes.
+Bill also ran `pnpm.cmd --filter @open-companion/desktop start` on Windows and observed the previously saved user message and scripted reply.
+
+The network audit covers Electron's default session, including the renderer. It does not capture arbitrary Node networking from the utility process or provide an OS-wide packet trace. The current broker selects the mock connection and built-in mock provider, whose turn path uses a timer and has no network transport. Process-wide outbound auditing and an OS-level network-denied run remain open. The existing Playwright acceptance test passes.
 
 ## Earlier managed-executor result (historical)
 

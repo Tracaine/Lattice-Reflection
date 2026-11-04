@@ -13,13 +13,16 @@
     "build:test": "pnpm --filter @open-companion/desktop build"
   },
   "dependencies": {
+    "@pixiv/three-vrm": "3.4.2",
     "react": "19.2.0",
+    "three": "0.179.1",
     "zod": "4.1.12"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1",
     "@types/node": "24.10.1",
     "@types/react": "19.2.2",
+    "@types/three": "0.179.0",
     "typescript": "5.9.3",
     "vitest": "3.2.4"
   }

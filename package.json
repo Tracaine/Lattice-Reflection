@@ -1,0 +1,14 @@
+{
+  "name": "open-companion",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "typecheck": "tsc -p tools/tsconfig.json",
+    "test": "vitest run",
+    "check:boundaries": "node tools/check-boundaries.mjs"
+  },
+  "dependencies": { "zod": "4.1.12" },
+  "devDependencies": { "typescript": "5.9.3", "vitest": "3.2.4", "@types/node": "24.10.1" }
+}

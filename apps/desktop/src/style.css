@@ -1,0 +1,10 @@
+:root { color-scheme: dark; font: 16px system-ui; background: #18171e; color: #f3eff8; }
+body { margin: 0; }
+main { max-width: 54rem; min-height: 95vh; margin: auto; padding: 1rem; box-sizing: border-box; display: grid; grid-template-rows: auto 1fr auto; gap: 1rem; }
+header p { color: #c5b5d7; }
+ol { padding: 0; margin: 0; list-style: none; overflow-wrap: anywhere; }
+li { padding: .75rem 1rem; margin: .5rem 0; background: #292632; border-radius: .5rem; }
+li p { white-space: pre-wrap; margin: .25rem 0; }
+form { display: grid; gap: .5rem; }
+textarea, button { font: inherit; padding: .65rem; }
+button { justify-self: end; }

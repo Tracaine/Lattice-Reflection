@@ -3,12 +3,24 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.25.0",
-  "engines": { "node": "24.x" },
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "typecheck": "tsc -p tools/tsconfig.json",
-    "test": "vitest run",
-    "check:boundaries": "node tools/check-boundaries.mjs"
+    "test": "vitest run tests/contract tests/integration",
+    "check:boundaries": "node tools/check-boundaries.mjs",
+    "build:test": "pnpm --filter @open-companion/desktop build"
   },
-  "dependencies": { "zod": "4.1.12" },
-  "devDependencies": { "typescript": "5.9.3", "vitest": "3.2.4", "@types/node": "24.10.1" }
+  "dependencies": {
+    "react": "19.2.0",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
 }

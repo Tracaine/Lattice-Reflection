@@ -1,5 +1,10 @@
 # Continuation state
 
+## Implementation update, 2026-11-04
+
+WRK-001 and WRK-002 are verified and published on the feature branch. See [WRK-001 evidence](evidence/WRK-001/result.md) and [WRK-002 evidence](evidence/WRK-002/result.md). WRK-003 has a local draft build, with [desktop acceptance blocked at launch](evidence/WRK-003/result.md). Resume WRK-003 in a desktop-capable environment. The remaining sections describe the original design handoff.
+
+
 ART-012. Blueprint revision 1, design version 0.1, draft for review. This is a continuation cache; a future agent must reconcile it with the actual repository and evidence.
 
 ## Verified baseline

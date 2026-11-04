@@ -3,7 +3,7 @@ import { Group, Mesh, MeshStandardMaterial, SphereGeometry } from "three";
 import type { AvatarManifest, MouthShape } from "../contracts/avatar-speech";
 
 export const demoManifest: AvatarManifest = {
-  schemaVersion: 1, id: "10000000-0000-4000-8000-000000000081", name: "Pip",
+  schemaVersion: 1, id: "10000000-0000-4000-8000-000000000061", name: "Pip",
   format: "builtin_demo", modelPath: null,
   sha256: "f9f829821256dfb5612a0f6b6b65bef7c91ea02edec04b1d408d440f597502a7",
   attribution: { authors: ["Open Companion contributors"], licenseName: "CC0-1.0",

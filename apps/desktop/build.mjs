@@ -17,5 +17,9 @@ await Promise.all([
     bundle: true, platform: "browser", jsx: "automatic",
     define: { "process.env.NODE_ENV": '"production"' },
   }),
+  build({
+    absWorkingDir: workingDir, entryPoints: ["../../packages/audio/worklet.ts"],
+    outfile: "dist/playback-worklet.js", bundle: true, platform: "browser", format: "esm",
+  }),
   ...["index.html", "style.css"].map(name => copyFile(new URL("src/" + name, import.meta.url), new URL(name, dist))),
 ]);

@@ -6,7 +6,7 @@ WRK-001 and WRK-002 are verified. WRK-003 is complete at the desktop text slice.
 
 The Electron default-session HTTP(S)/WebSocket audit was empty. Process-wide outbound auditing and operation under OS-level network denial remain open. M0 is still in progress.
 
-WRK-004 (avatar renderer and original demo rig) and WRK-005 (PCM playback clock and cancellation) are eligible. WRK-004 is the recommended next slice and unlocks WRK-019 when verified. WRK-006 needs both WRK-004 and WRK-005. No next package has started.
+WRK-004 and WRK-005 are implemented and fixture-tested. Windows graphics, AudioWorklet and hardware measurements are pending. Follow the [Windows handoff](evidence/WRK-005/result.md#windows-hardware-handoff). WRK-019 requires verified WRK-004. WRK-006 requires both packages and has not started.
 
 ## Original design handoff (historical)
 

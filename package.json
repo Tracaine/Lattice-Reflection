@@ -8,7 +8,7 @@
   },
   "scripts": {
     "typecheck": "tsc -p tools/tsconfig.json",
-    "test": "vitest run tests/contract tests/integration",
+    "test": "vitest run tests/contract tests/unit tests/integration",
     "check:boundaries": "node tools/check-boundaries.mjs",
     "build:test": "pnpm --filter @open-companion/desktop build"
   },

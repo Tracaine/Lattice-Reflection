@@ -7,13 +7,13 @@ const origin = "companion://app";
 const auditPath = process.env.OPEN_COMPANION_NETWORK_AUDIT;
 if (process.env.OPEN_COMPANION_TEST_DATA) app.setPath("userData", process.env.OPEN_COMPANION_TEST_DATA);
 app.commandLine.appendSwitch("disable-background-networking");
-protocol.registerSchemesAsPrivileged([{ scheme: "companion", privileges: { standard: true, secure: true } }]);
+protocol.registerSchemesAsPrivileged([{ scheme: "companion", privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 
 if (!app.requestSingleInstanceLock()) app.quit();
 else void app.whenReady().then(() => {
   protocol.handle("companion", request => {
     const path = new URL(request.url).pathname;
-    if (!["/index.html", "/renderer.js", "/style.css"].includes(path)) return new Response(null, { status: 404 });
+    if (!["/index.html", "/renderer.js", "/style.css", "/playback-worklet.js"].includes(path)) return new Response(null, { status: 404 });
     return net.fetch(pathToFileURL(join(__dirname, path.slice(1))).href);
   });
   session.defaultSession.setPermissionRequestHandler((_contents, _permission, respond) => respond(false));
